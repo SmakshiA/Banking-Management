@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>View Employees Branchwise</title>
+    <style>
+		table {
+			border: 1px solid black;
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th, td {
+			padding: 8px;
+			text-align: left;
+		}
+	</style>
+</head>
+<body>
+    <form action="/viewEBr1" method="POST">
+        <div class="inputgroup">
+            <label for="input1">Enter the Branch Id: </label>
+            <input type="text" id="input1" name="input1" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+
+        <div class="submit">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+
+
+    {% if result %}
+        {% if result == "Data Not Found" %}
+            <p>Data Not Found</p>
+        {% else %}
+            <div class="answer">
+                <h1>Data</h1>
+                <table>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Branch Id</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Phone No</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                    </tr>
+                    {% for row in result %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                        <td>{{ row[5] }}</td>
+                        <td>{{ row[6] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+	{% endif %}
+</body>
+</html>

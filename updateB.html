@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+    <title>Update Branch Details</title>
+    <style>
+        body{
+            background-color: #FFEBEB;
+        }
+		table {
+			border: solid black;
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th, td {
+			padding: 8px;
+			text-align: left;
+            font-size: 20px;
+            border:  solid black;
+		}
+        input[type=text] {
+            width: 30%;
+            padding: 12px 20px 12px 12px;
+            margin: auto;
+            box-sizing: border-box;
+            border: 2px solid black;
+            border-radius: 4px;
+            font-size: 16px;
+            /* text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+	</style>
+</head>
+<body>
+    <form action="/updateB" method="POST">
+        <div class="inputgroup">
+            <label style="font-size: 40px; font-weight: bold;" for="input1">Enter the Branch Id: </label>
+            <input type="text" id="input1" style="margin-left: 90px;" name="input1" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+
+        <div class="inputgroup">
+            <label style="font-size: 40px; font-weight: bold;" for="input2">Enter new Telephone No : </label>
+            <input type="text" style="margin-left: 7px;" id="input2" name="input2" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+
+        <div class="submit">
+            <button style="margin: auto; margin-top: 20px;" styltype="submit">Update</button>
+        </div>
+    </form>
+    
+
+    {% if result %}
+        
+        <div class="answer">
+            <h1 style="font-size: 40px;">Data updated successfully</h1>
+            <table>
+                <tr>
+                    <th>Branch ID</th>
+                    <th>Name</th>
+                    <th>IFSC</th>
+                    <th>Telephone No</th>
+                    <th>City</th>
+                    <th>PIN Code</th>
+                </tr>
+                {% for row in result %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td>{{ row[5] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        
+	{% endif %}
+    <form action="/operations" method="POST">
+        <button type="submit" style="position: absolute; top: 0; right: 0; margin: 10px;">
+            Back to home</button>
+    </form>
+</body>
+</html>

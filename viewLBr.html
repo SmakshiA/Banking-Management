@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+    <title>View Loan Branchwise</title>
+    <style>
+		body{
+            background-color: #FFEBEB;
+        }
+		table {
+			border: solid black;
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th, td {
+			padding: 8px;
+			text-align: left;
+            font-size: 20px;
+            border:  solid black;
+		}
+        input[type=text] {
+            width: 30%;
+            padding: 12px 20px 12px 12px;
+            margin: auto;
+            box-sizing: border-box;
+            border: 2px solid black;
+            border-radius: 4px;
+            font-size: 16px;
+            /* text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+        label{
+            font-size: 40px; font-weight: bold;
+        }
+	</style>
+</head>
+<body>
+    <form action="/viewLBr" method="POST">
+        <div class="inputgroup">
+            <label for="input1">Enter the Branch Id: </label>
+            <input type="text" id="input1" name="input1" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+
+        <div class="submit">
+            <button style="margin: auto; margin-top: 20px;" styltype="submit">Get Details</button>
+        </div>
+    </form>
+    {% if result %}
+    {% if result == "Data Not Found" %}
+        <p>Data Not Found</p>
+    {% else %}
+        <div class="answer">
+            <h1>Data</h1>
+            <table>
+                <tr>
+                    <th>Loan Id</th>
+                    <th>Account No</th>
+                    <th>Type</th>
+                    <th>DurationInMonth</th>
+                    <th>ROI</th>
+                    <th>DOI</th>
+                    <th>Amount</th>
+                </tr>
+                {% for row in result %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td>{{ row[5] }}</td>
+                    <td>{{ row[6] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endif %}
+{% endif %}
+<form action="/operations" method="POST">
+    <button type="submit" style="position: absolute; top: 0; right: 0; margin: 10px;">
+        Back to home</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,154 @@
+body {
+    /*background-color: #9AB3F5;*/
+    background-color: #BDCCF4;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+  }
+  
+  ul {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    list-style: none;
+  }
+  
+  button {
+          outline: none;
+          display: inline-block;
+          position: relative;
+          overflow: hidden;
+          border: 2px solid #EEEEEE;
+          color: #EEEEEE;
+          font-size:1rem;
+          padding: 1.125rem;
+          cursor: pointer;
+          background: #202020;
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+  }
+  
+  button span:first-child {
+    position: relative;
+    transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+    z-index: 1;
+  }
+  
+  button span:last-child {
+    color: #EEEEEE;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+    z-index: 3;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    height: 1rem;
+  }
+  
+  button:after {
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    z-index: 2;
+    transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  }
+  
+  button:hover span:last-child, button:focus span:last-child {
+    opacity: 1;
+    transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+  }
+  
+  /* Left */
+  .left span:last-child {
+    transform: translate(-250%,-50%);
+   }
+  
+  .left:after {
+    background-color: grey;
+    left: -50%;
+    top: 0;
+    transform: skewX(9.3deg) scaleX(0);
+    transform-origin: left center;
+  }
+  
+  .left:hover:after, .left:focus:after {
+    transform-origin: left center;
+    transform: skewX(9.3deg) scaleX(2);
+  }
+  
+  .left:hover span:last-child, .left:focus span:last-child {
+              transform:translate(-50%,-65%);
+          }
+  
+  /* Up */
+  .up span:last-child {
+    transform: translate(-50%,-425%);
+  }
+  
+  .up:after {
+    background-color: grey;
+    top: -50%;
+    left: 0;
+    transform: skewY(9.3deg) scaleY(0);
+    transform-origin: top center;
+  }
+  
+  .up:hover:after, .up:focus:after {
+    transform-origin: top center;
+    transform: skewY(9.3deg) scaleY(2);
+    }
+  
+  .up:hover span:last-child, .up:focus span:last-child {
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  /* Right */
+  .right span:last-child {
+    transform: translate(250%,-50%);
+  }
+  
+  .right:after {
+    background-color: grey;
+    right: -50%;
+    top: 0;
+    transform: skewX(9.3deg) scaleX(0);
+    transform-origin: right center;
+  }
+  
+  .right:hover:after, .right:focus:after {
+    transform-origin: right center;
+    transform: skewX(9.3deg) scaleX(2);
+    }
+  
+  .right:hover span:last-child, .right:focus span:last-child {
+    transform:translate(-50%,-65%);
+  }
+  
+  /* Down */
+  .down span:last-child {
+    transform: translate(-50%,225%);
+  }
+  
+  .down:after {
+    background-color: grey;
+    bottom: -50%;
+    left: 0;
+    transform: skewY(9.3deg) scaleY(0);
+    transform-origin: bottom center;
+  }
+  
+  .down:hover:after, .down:focus:after {
+    transform-origin: bottom center;
+    transform: skewY(9.3deg) scaleY(2);
+  }
+  
+  .down:hover span:last-child, .down:focus span:last-child {
+    transform: translateX(-50%) translateY(-65%);
+  }

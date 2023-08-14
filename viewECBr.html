@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+    <title>View Employees Branchwise</title>
+    <style>
+		body{
+            background-color: #FFEBEB;
+        }
+		table {
+			border:  solid black;
+			border-collapse:collapse; 
+            
+			width: 100%;
+		}
+		th, td {
+			padding: 8px;
+            font-size: 20px;
+			text-align: left;
+            border:  solid black;
+		}
+        input[type=text] {
+            width: 30%;
+            padding: 12px 20px 12px 12px;
+            margin: auto;
+            box-sizing: border-box;
+            border: 2px solid black;
+            border-radius: 4px;
+            font-size: 16px;
+            /* text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+        label{
+            font-size: 40px; font-weight: bold;
+        }
+	</style>
+</head>
+<body>
+    <form action="/viewECBr" method="POST">
+        <div class="inputgroup">
+            <label for="input1">Enter the Branch Id: </label>
+            <input type="text" id="input1" name="input1" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+
+        <div class="submit">
+            <button type="submit" class="right">
+                <span>Get Details</span>
+                <span>Get Details</span>
+            </button>
+        </div>
+    </form>
+
+    {% if result %}
+        {% if result == "Data Not Found" %}
+            <p style="font-size: 40px; font-weight: bold;">Data Not Found</p>
+        {% else %}
+            <div class="answer">
+                <h1 style="font-size: 40px; font-weight: bold;">Total No Of Employees: {{result}}</h1>
+            </div>
+        {% endif %}
+	{% endif %}
+    <form action="/operations" method="POST">
+		<button type="submit" style="position: fixed; top: 0; right: 0; margin: 10px;">
+		Back to home</button>
+	</form>
+</body>
+</html>

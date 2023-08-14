@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+    <title>Update Employee Details</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <form action="/updateEPhno" method="POST" >
+                <button type="submit" class="right">
+                    <span>Update Phone No</span>
+                    <span>Update Phone No</span>
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="/updateEdp" method="POST" >
+                <button type="submit" class="right">
+                    <span>Update Department</span>
+                    <span>Update Department</span>
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="/updateESal" method="POST" >
+                <button type="submit" class="right">
+                    <span>Update Salary</span>
+                    <span>Update Salary</span>
+                </button>
+            </form>
+        </li>
+    </ul>
+    <form action="/operations" method="POST">
+        <button type="submit" style="position: absolute; bottom:0; right: 0; margin: 10px;">
+            Back to home</button>
+    </form>
+</body>
+</html>

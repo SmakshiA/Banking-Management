@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+    <title>Loan</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <form action="/viewL" method="POST" >
+                <button type="submit" class="right">
+                    <span>View</span>
+                    <span>View</span>
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="/viewLBr" method="POST" >
+                <button type="submit" class="right">
+                    <span>View Branchwise Loan</span>
+                    <span>View Branchwise Loan</span>
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="/viewLC" method="POST" >
+                <button type="submit" class="right">
+                    <span>View no of Loans in each branch</span>
+                    <span>View no of Loans in each branch</span>
+                </button>
+            </form>
+        </li>
+    </ul>
+    <img style="padding-top: 40px; margin: auto; display:flex;justify-content: center; width: 50%; height: 35%;" src="static/loanimg.png" alt="">
+    <form action="/operations" method="POST">
+        <button type="submit" style="position: absolute; bottom: 0; right: 0; margin: 10px;">
+            Back to home</button>
+    </form>
+</body>
+</html>

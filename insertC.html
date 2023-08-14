@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+    <title>Add Customer</title>
+    <style>
+		body{
+            background-color: #FFEBEB;
+        }
+		table {
+			border:  solid black;
+			border-collapse:collapse; 
+            
+			width: 100%;
+		}
+		th, td {
+			padding: 8px;
+            font-size: 20px;
+			text-align: left;
+            border:  solid black;
+		}
+        input[type=text] {
+            width: 30%;
+            padding: 12px 20px 12px 12px;
+            margin: auto;
+            box-sizing: border-box;
+            border: 2px solid black;
+            border-radius: 4px;
+            font-size: 16px;
+            /* text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+        label{
+            font-size: 40px; font-weight: bold;
+        }
+	</style>
+</head>
+<body>
+    <form action="/insertC" method="POST">
+        <div class="inputgroup">
+            <label for="input1">Enter the Account No: </label>
+            <input type="text" id="input1" name="input1" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+        <div class="inputgroup">
+            <label for="input2">Enter the branch id: </label>
+            <input style="margin-left: 33px;" type="text" id="input2" name="input2" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+        <div class="inputgroup">
+            <label for="input3">Enter the Name: </label>
+            <input style="margin-left: 99px;" type="text" id="input3" name="input3" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+        <div class="inputgroup">
+            <label for="input4">Enter the Age: </label>
+            <input style="margin-left: 134px;" type="text" id="input4" name="input4" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+        <div class="inputgroup">
+            <label for="input5">Enter the Gender: </label>
+            <input style="margin-left: 70px;" type="text" id="input5" name="input5" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+        <div class="inputgroup">
+            <label for="input6">Enter the Phone No: </label>
+            <input style="margin-left: 33px;" type="text" id="input6" name="input6" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+        <div class="inputgroup">
+            <label for="input7">Enter the Aadhar No: </label>
+            <input style="margin-left: 11px;"  type="text" id="input7" name="input7" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+        <div class="inputgroup">
+            <label for="input8">Enter the Balance: </label>
+            <input style="margin-left: 63px;" type="text" id="input8" name="input8" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+        <div class="inputgroup">
+            <label for="input9">Enter the City: </label>
+            <input style="margin-left: 126px;"  type="text" id="input9" name="input9" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+        <div class="inputgroup">
+            <label for="input10">Enter the Pin code: </label>
+            <input style="margin-left: 55px;"  type="text" id="input10" name="input10" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+
+        <div class="submit">
+            <button style="margin: auto; margin-top: 20px;" styltype="submit">Add Employee</button>
+        </div>
+    </form>
+
+
+    {% if result %}
+        {% if result == "Found duplicate employee data" %}
+            <p style="font-size: 40px;font-weight: bold;">Found duplicate employee data</p>
+        {% else %}
+            <div class="answer">
+                <h1 style="font-size: 40px;font-weight: bold;">Data</h1>
+                <table>
+                    <tr>
+                        <th>Account No</th>
+                        <th>Branch ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Phone no</th>
+                        <th>Aadhar No</th>
+                        <th>Account type</th>
+                        <th>Balance</th>
+                        <th>City</th>
+                        <th>PIN Code</th>
+                    </tr>
+                    {% for row in result %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                        <td>{{ row[5] }}</td>
+                        <td>{{ row[6] }}</td>
+                        <td>{{ row[7] }}</td>
+                        <td>{{ row[8] }}</td>
+                        <td>{{ row[9] }}</td>
+                        <td>{{ row[10] }}</td>
+
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+	{% endif %}
+    <form action="/operations" method="POST">
+        <button type="submit" style="position: absolute; top: 0; right: 0; margin: 10px;">
+            Back to home</button>
+    </form>
+</body>
+</html>

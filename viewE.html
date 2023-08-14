@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+    <title>View Employees</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <form action="/viewEAll" method="POST" >
+                <button type="submit" class="right">
+                    <span>View Employees</span>
+                    <span>View Employees</span>
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="/viewEBr" method="POST" >
+                <button type="submit" class="right">
+                    <span>View Branch wise</span>
+                    <span>View Branch wise</span>
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="/viewEC" method="POST" >
+                <button type="submit" class="right">
+                    <span>View Total No of Employee</span>
+                    <span>View Total No of Employee</span>
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="/viewECBr" method="POST" >
+                <button type="submit" class="right">
+                    <span>View Branch wise Total Employee</span>
+                    <span>View Branch wise Total Employee</span>
+                </button>
+            </form>
+        </li>
+    </ul>
+    <form action="/operations" method="POST">
+        <button type="submit" style="position: fixed; bottom: 0; right: 0; margin: 10px;">
+            Back to home</button>
+    </form>
+</body>
+</html>

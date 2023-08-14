@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+    <title>Update Employee Salary</title>
+    <style>
+		body{
+            background-color: #FFEBEB;
+        }
+		table {
+			border:  solid black;
+			border-collapse:collapse; 
+            
+			width: 100%;
+		}
+		th, td {
+			padding: 8px;
+            font-size: 20px;
+			text-align: left;
+            border:  solid black;
+		}
+        input[type=text] {
+            width: 30%;
+            padding: 12px 20px 12px 12px;
+            margin: auto;
+            box-sizing: border-box;
+            border: 2px solid black;
+            border-radius: 4px;
+            font-size: 16px;
+            /* text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+        label{
+            font-size: 40px; font-weight: bold;
+        }
+	</style>
+</head>
+<body>
+    <form action="/updateESal" method="POST">
+        <div class="inputgroup">
+            <label for="input1">Enter the Employee Id: </label>
+            <input type="text" id="input1" name="input1" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+
+        <div class="inputgroup">
+            <label for="input2">Enter Updated Salary : </label>
+            <input type="text" id="input2" name="input2" value="" onkeyup="this.setAttribute('value', this.value);"/>
+        </div>
+
+        <div class="submit" class="right">
+            <button style="margin: auto; margin-top: 20px;" styltype="submit">Update</button>
+        </div>
+    </form>
+
+
+    {% if result %}
+        {% if result == "Could not update" %}
+            <p style="font-size: 40px; font-weight: bold;">Could not update</p>
+        {% else %}
+            <div class="answer">
+                <h1>Data updated successfully</h1>
+                <table>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Branch Id</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Phone No</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                    </tr>
+                    {% for row in result %}
+                    <tr>
+                            <td>{{ row[0] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                            <td>{{ row[4] }}</td>
+                            <td>{{ row[5] }}</td>
+                            <td>{{ row[6] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+	{% endif %}
+    <form action="/operations" method="POST">
+        <button type="submit" style="position: absolute; top: 0; right: 0; margin: 10px;">
+            Back to home</button>
+    </form>
+</body>
+</html>

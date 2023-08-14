@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+    <title>Customer</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <form action="/viewC" method="POST" >
+                <button type="submit" class="right">
+                    <span>View</span>
+                    <span>View</span>
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="/insertC" method="POST" >
+                <button type="submit" class="right">
+                    <span>Insert</span>
+                    <span>insert</span>
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="/updateC" method="POST" >
+                <button type="submit" class="right">
+                    <span>Update</span>
+                    <span>Update</span>
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="/deleteC" method="POST" >
+                <button type="submit" class="right">
+                    <span>Delete</span>
+                    <span>Delete</span>
+                </button>
+            </form>
+        </li>
+    </ul>
+    <img style="padding-top: 40px; margin: auto; display:flex;justify-content: center; width: 70%; height: 55%;" src="static/customer.jpg" alt="">
+    <form action="/operations" method="POST">
+        <button type="submit" style="position: fixed; bottom: 0; right: 0; margin: 10px;">
+            Back to home</button>
+    </form>
+</body>
+</html>

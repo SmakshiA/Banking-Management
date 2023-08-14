@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+    <title>View Customer</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <form action="/viewCAll" method="POST" >
+                <button type="submit" class="right">
+                    <span>View Customers</span>
+                    <span>View Customers</span>
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="/viewCBr" method="POST" >
+                <button type="submit" class="right">
+                    <span>View Branch wise</span>
+                    <span>View Branch wise</span>
+                </button>
+            </form>
+        </li>
+    </ul>
+    <form action="/operations" method="POST">
+        <button type="submit" style="position: absolute; bottom: 0; right: 0; margin: 10px;">
+            Back to home</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+    <title>Operations</title>
+    <style>
+        .img-container {
+            text-align: center;
+        }
+        img {
+            height: 450px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Admin access</h1>
+    <ul>
+        <li>
+            <form action="/branch" method="POST" >
+                <button type="submit" class="right">
+                    <span>Branch</span>
+                    <span>Branch</span>
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="/employee" method="POST" >
+                <button type="submit" class="right">
+                    <span>Employee</span>
+                    <span>Employee</span>
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="/customer" method="POST" >
+                <button type="submit" class="right">
+                    <span>Customer</span>
+                    <span>Customer</span>
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="/loan" method="POST" >
+                <button type="submit" class="right">
+                    <span>Loan</span>
+                    <span>Loan</span>
+                </button>
+            </form>
+        </li>
+        <br>
+        
+    </ul>
+    <div class="img-container">
+        <img src="static/bkimg.jpg" alt="" style="text-align: center;">
+    </div>
+    <form action="/" method="POST">
+        <button type="submit" style="position: fixed; bottom: 0; right: 0; margin: 10px;">
+            Logout</button>
+    </form>
+</body>
+</html>
